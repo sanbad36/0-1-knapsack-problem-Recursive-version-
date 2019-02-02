@@ -1,7 +1,7 @@
 
 /*	Author- sanket Badjate.
 	0/1 knapsack---(recursive version
-	In zero 0/1 knapsack we are not suppose to take the frackion of the element .
+	In zero 0/1 knapsack we are not suppose to take the fraction of the element .
 	There are two possibities --Either to take the object fully or not to take it.
 	This algorithm will take the time O(2^n). which is exponential .Thus to reduce the time we will use dynamic programming.
 */
