@@ -1,0 +1,58 @@
+
+/*	Author- sanket Badjate.
+	0/1 knapsack---(recursive version
+	In zero 0/1 knapsack we are not suppose to take the frackion of the element .
+	There are two possibities --Either to take the object fully or not to take it.
+	This algorithm will take the time O(2^n). which is exponential .Thus to reduce the time we will use dynamic programming.
+*/
+
+#include<iostream>
+using namespace std;
+
+int findmax(int a,int b){  //to find the max between two
+
+	return (a>b)?a:b;
+}
+
+int calArraylength(int wt[],int profit[]){	//cal the size of array
+	
+	int size_wt=sizeof(wt)/sizeof(wt[0]);
+	int size_profit=sizeof(profit)/sizeof(profit[0]);
+
+		if(size_wt==size_profit)
+				
+				return size_profit;
+			
+		else 
+				cout<<"Both the array has different count of element\n";
+}
+
+int knapsack(int wt[],int profit[],int capacity,int size){   //main recursive function  
+
+
+	if(size==0||capacity==0){		// check that the capacity & size that element count should not be zero
+
+		return 0;
+	}
+	if(wt[size]>capacity){			// here the weight of the object is greater than the knapsack capacity then in this case simply skip the object.
+			
+			return knapsack(wt,profit,capacity,size-1);
+	}
+	else{			//here we have two option thatis take the object fully or don't take it. and we tried both the method and find the max profit between both
+					// if we take the object the the overall profit will increases also the overall capacity will decreases by the weight of the object selected and
+					//obiviously decreases the size of the object count .
+					// if we don't take it then simply decrease the count of the object and try to select the next object.  
+			return findmax( profit[size]+knapsack(wt,profit,capacity-wt[size],size-1) , knapsack(wt,profit,capacity,size-1));
+		}
+
+
+}
+int main(){
+	int Total_profit=0;
+	int wt[]={1,2,4}; 
+	int profit[]={10,12,28};
+	int capacity=6;
+	int size=calArraylength(wt,profit);
+	Total_profit=knapsack(wt,profit,capacity,size);
+	cout<<Total_profit<<endl;
+}
