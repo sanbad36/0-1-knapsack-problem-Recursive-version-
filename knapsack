@@ -1,12 +1,14 @@
 
 /*	Author- sanket Badjate.
 	0/1 knapsack---(recursive version
-	In zero 0/1 knapsack we are not suppose to take the fraction of the element .
+	In zero 0/1 knapsack we are not suppose to take the frackion of the element .
 	There are two possibities --Either to take the object fully or not to take it.
 	This algorithm will take the time O(2^n). which is exponential .Thus to reduce the time we will use dynamic programming.
 */
 
 #include<iostream>
+#include<stdio.h>
+#include<stdlib.h>
 using namespace std;
 
 int findmax(int a,int b){  //to find the max between two
@@ -20,11 +22,13 @@ int calArraylength(int wt[],int profit[]){	//cal the size of array
 	int size_profit=sizeof(profit)/sizeof(profit[0]);
 
 		if(size_wt==size_profit)
-				
-				return size_profit;
+					return size_profit;
 			
-		else 
-				cout<<"Both the array has different count of element\n";
+		else {
+					cout<<"Both the array has different count of element\n";
+					exit(1);
+		}		
+
 }
 
 int knapsack(int wt[],int profit[],int capacity,int size){   //main recursive function  
@@ -54,5 +58,5 @@ int main(){
 	int capacity=6;
 	int size=calArraylength(wt,profit);
 	Total_profit=knapsack(wt,profit,capacity,size);
-	cout<<Total_profit<<endl;
+	cout<<"Total_profit in the knapsack is : "<<Total_profit<<endl;
 }
