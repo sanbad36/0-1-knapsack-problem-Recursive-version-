@@ -16,7 +16,7 @@ int findmax(int a,int b){  //to find the max between two
 	return (a>b)?a:b;
 }
 
-int calArraylength(int wt[],int profit[]){	//cal the size of array
+int calArraylength(int wt[],int profit[]){	//calculate the size of array
 	
 	int size_wt=sizeof(wt)/sizeof(wt[0]);
 	int size_profit=sizeof(profit)/sizeof(profit[0]);
